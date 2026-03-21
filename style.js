@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 768px以上の時だけ画像をスライドさせる
         if (window.innerWidth > 768) {
             // 例：スクロール量に合わせて最大20pxまで左右に広げる
-            const moveAmount = Math.min(scrollY * 1.8, 350);
+            const moveAmount = scrollY * 1.8;
             const scaleAmount = Math.min(1 + scrollY * 0.003, 3);
 
             if (allImg.length > 0) {

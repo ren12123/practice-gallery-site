@@ -76,7 +76,7 @@ html {
 }
 
 .info__label {
-    font-size: 60px;
+    font-size: clamp(32px,4.17vw,60px);
     letter-spacing: 0.03em;
     text-decoration: underline;
     margin-bottom: 45px;
@@ -115,8 +115,7 @@ html {
 .gallery__content {
     display: flex;
     flex-direction: column;
-    max-width: 740px;
-    width: 100%;
+    width: clamp(315px,51.39vw,740px);
     margin: 0 auto;
     gap: clamp(30px,4.17vw,60px);
     
@@ -135,7 +134,7 @@ html {
 }
 
 .gallery_title {
-    font-size: 60px;
+    font-size: clamp(32px,4.17vw,60px);
     font-weight: 300;
     text-decoration: underline;
     text-underline-offset: 14px;
@@ -152,7 +151,6 @@ html {
 .gallery__content .fadeup.is-animated {
     transition-delay: 0.5s; /* ここで時間をずらす */
 }
-
 /* 768px以下：中央1枚のみ */
 @media (max-width: 768px) {
     .main-gallery__img--left,
