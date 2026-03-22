@@ -10,6 +10,11 @@ html {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+a {
+  color: inherit;        /* 親要素の色を使う */
+  text-decoration: none; /* 下線を消す */
+}
+
 .main-gallery {
     /* セクション全体の設定 */
     width: 100%;
@@ -75,7 +80,7 @@ html {
     font-weight: 300;
 }
 
-.info__label {
+.label {
     font-size: clamp(32px,4.17vw,60px);
     letter-spacing: 0.03em;
     text-decoration: underline;
@@ -84,6 +89,7 @@ html {
     text-decoration-thickness: 1px;
     line-height: 1.25;
     text-underline-offset: 14px;
+    text-align: center;
 }
 
 .info__datetime--en {
@@ -133,24 +139,49 @@ html {
     align-self: flex-end;
 }
 
-.gallery_title {
-    font-size: clamp(32px,4.17vw,60px);
-    font-weight: 300;
-    text-decoration: underline;
-    text-underline-offset: 14px;
-    text-align: center;
-    margin-bottom: 45px;
-    text-decoration-thickness: 1px;
-}
-
 .is-animated {
     opacity: 1 !important;        /* 透明を解除 */
     transform: translateY(0) !important; /* 下から上に位置を戻す */
 }
 
-.gallery__content .fadeup.is-animated {
-    transition-delay: 0.5s; /* ここで時間をずらす */
+.acsess {
+    background-image: url('../../imgs/bg\ 1.png');
+    padding-block: clamp(280px,33.4vw,481px);
+    background-size: cover;      /* 隙間なく全体を覆う（これが最重要） */
+    background-position: center; /* 中央を基準にする */
+    background-repeat: no-repeat; /* 1枚だけ表示する */
+    /*background: url('../../imgs/bg 1.png') center / cover no-repeat;一行でもあらわせれる*/
 }
+
+.acsess__content {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.acsess_hradline {
+    text-align: center;
+}
+
+.acsess_sideline {
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.info__acsess--jp {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.info__tel {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+
 /* 768px以下：中央1枚のみ */
 @media (max-width: 768px) {
     .main-gallery__img--left,
