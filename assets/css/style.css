@@ -218,7 +218,11 @@ a {
     white-space: nowrap; /* 改行を防ぐ */
 
     opacity: 0;
-    position: relative;
+    transition: 1s ease-out;
+}
+
+.side-btn.is-activate {
+    opacity: 1;
 }
 
 .side-btn a {
