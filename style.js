@@ -2,35 +2,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. 要素の取得 ---
     const allImg = document.querySelectorAll('.main-gallery__img');
     const fadeElements = document.querySelectorAll('.fadeup');
-    const sideBtn = document.querySelector('.side-btn');
+    const sideBtn = document.querySelector('.side-nav');
     const heroElement = document.querySelector('.hero');
     const inOutImages = document.querySelectorAll('.in-out'); 
-    const triggerImg6 = document.querySelector('.picture-right.in-out'); 
+    
+    // 正しい Modifier: gallery__item--even
+    const triggerImg6 = document.querySelector('.gallery__item--even.in-out'); 
+    
     const accessSection = document.querySelector('.access');
     const accessContent = document.querySelector('.access__content');
-    const hamBurger = document.querySelector('.hamburger');
+    
+    // 修正済み: header__hamburger
+    const hamBurger = document.querySelector('.header__hamburger');
     const serchMenu = document.querySelector('.menu');
     const header = document.querySelector('.header');
 
     let ticking = false;
 
-    // --- 2. スクロールイベント (パララックス & サイドボタン判定) ---
+    // --- 2. スクロールイベント ---
     window.addEventListener('scroll', () => {
         if (!ticking) {
             window.requestAnimationFrame(() => {
-                // (A) パララックスアニメーション
                 updateHeroAnimation();
-                
-                // (B) サイドボタンの表示・非表示判定
                 handleSideBtnDisplay();
-                
                 ticking = false;
             });
             ticking = true;
         }
     }, { passive: true });
 
-    // パララックス計算用
     function updateHeroAnimation() {
         const scrollY = window.scrollY;
         if (window.innerWidth > 768) {
@@ -48,33 +48,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // サイドボタン出現ロジック
-    // サイドボタン出現ロジック（Footer接触前に消える判定を追加）
-    // サイドボタン出現ロジック（Accessセクションに接触する前に消す）
     function handleSideBtnDisplay() {
-        // ターゲットを .access に変更
-        const accessElement = document.querySelector('.access'); 
-        if (!heroElement || !sideBtn || !accessElement) return;
-
+        if (!heroElement || !sideBtn || !accessSection) return;
         const heroRect = heroElement.getBoundingClientRect();
-        const accessRect = accessElement.getBoundingClientRect();
-        const vh = window.innerHeight; // 画面の高さ
+        const accessRect = accessSection.getBoundingClientRect();
+        const vh = window.innerHeight;
 
-        // 【判定条件の更新】
-        // 1. Heroが画面上部 (100px) より上に来ている
-        // かつ
-        // 2. Accessセクションの頭が、画面の下端 (vh) より 100px 以上下にある
-        // ( +100 とすることで、Accessが見え始める「直前」に余裕をもって消せます)
-        
         if (heroRect.top < 100 && accessRect.top > (vh + 100)) {
             sideBtn.classList.add('is-activate');
         } else {
-            // Heroより上にスクロール戻した時、またはAccessが近づいてきた時に消す
             sideBtn.classList.remove('is-activate');
         }
     }
 
-    // --- 3. IntersectionObserver (フェードアニメーション) ---
+    // --- 3. フェードアニメーション ---
     const generalObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -85,20 +72,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fadeElements.forEach(el => generalObserver.observe(el));
 
-    // --- 4. IntersectionObserver (画像5-6消去とAccess背景連動) ---
+    // --- 4. 画像5-6消去とAccess背景連動 ---
     const scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             const rect = entry.boundingClientRect;
             const wh = window.innerHeight;
 
-            // 画面の下側に消えたらリセット
             if (!entry.isIntersecting && rect.top > wh) {
                 inOutImages.forEach(img => img.classList.remove('is-hidden'));
                 accessSection.classList.remove('is-bg-active');
                 return;
             }
 
-            // flower6 (triggerImg6) の位置で判定
             if (entry.target === triggerImg6) {
                 if (rect.top < wh / 3) { 
                     inOutImages.forEach(img => img.classList.add('is-hidden'));
@@ -109,15 +94,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // Accessセクションのコンテンツ位置で背景を戻す判定
             if (entry.target === accessContent) {
                 if (rect.top < wh / 3) {
                     accessSection.classList.remove('is-bg-active');
-                } 
-                else if (rect.top > wh / 3) {
-                    const img6Rect = triggerImg6.getBoundingClientRect();
-                    if (img6Rect.top < wh / 3) {
-                        accessSection.classList.add('is-bg-active');
+                } else if (rect.top > wh / 3) {
+                    if (triggerImg6) {
+                        const img6Rect = triggerImg6.getBoundingClientRect();
+                        if (img6Rect.top < wh / 3) {
+                            accessSection.classList.add('is-bg-active');
+                        }
                     }
                 }
             }
@@ -134,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
         hamBurger.addEventListener('click', () => {
             hamBurger.classList.toggle('is-active');
             header.classList.toggle('is-open');
-
             if (hamBurger.classList.contains('is-active')) {
                 serchMenu.classList.add('is-active');
             } else {

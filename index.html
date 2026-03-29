@@ -12,16 +12,18 @@
 
     <header class="header">
         <div class="header__content">
-            <a href="#" class="fa">FA EXHIBITION</a>
+            <a href="#" class="header__logo">FA EXHIBITION</a>
 
-            <div class="menu">
-                <p>TOP</p>
-                <p>INFORMATION</p>
-                <p>GALLERY</p>
-                <p>ACCESS</p>
-                <p>CONTACT</p>
-            </div>
-            <button class="hamburger"><span></span></button>
+            <nav class="header__nav menu">
+                <ul class="menu__list">
+                    <li class="menu__item"><a href="#" class="menu__link">TOP</a></li>
+                    <li class="menu__item"><a href="#" class="menu__link">INFORMATION</a></li>
+                    <li class="menu__item"><a href="#" class="menu__link">GALLERY</a></li>
+                    <li class="menu__item"><a href="#" class="menu__link">ACCESS</a></li>
+                    <li class="menu__item"><a href="#" class="menu__link">CONTACT</a></li>
+                </ul>
+            </nav>
+            <button class="header__hamburger hamburger"><span></span></button>
         </div>
     </header>
 
@@ -38,8 +40,8 @@
             <div class="hero__headline">
                 <h1 class="hero__title fadeup">Hello Flower!<br>FA EXHIBITION 2021</h1>
             
-                <div class="hero__info-block info fadeup">
-                    <h2 class="label">INFORMATION</h2>
+                <div class="hero__info info fadeup">
+                    <h2 class="info__label">INFORMATION</h2>
                     
                     <p class="info__datetime info__datetime--en">
                         <span class="info__date">2021 JUL 1(THU)-3(SAT)</span><br>
@@ -57,32 +59,32 @@
         </div>
     </section>
 
-    <div class="side-btn">
-        <a class="side__top" href="#">FOR VISITOR</a>
-        <a href="#" class="side__bottom">FOR EXHIBITION</a>
+    <div class="side-nav">
+        <a href="#" class="side-nav__link--top">FOR VISITOR</a>
+        <a href="#" class="side-nav__link--bottom">FOR EXHIBITION</a>
     </div>
 
     <section class="gallery">
-        <h2 class="label fadeup">GALLERY</h2>
+        <h2 class="gallery__label label fadeup">GALLERY</h2>
 
-        <div class="gallery__content">
-            <img class="picture-left fadeup" src="./imgs/flower1.jpg" alt="">
-            <img class="picture-right fadeup" src="./imgs/flower2.jpg" alt="">
-            <img class="picture-left fadeup" src="./imgs/flower3.jpg" alt="">
-            <img class="picture-right fadeup" src="./imgs/flower4.jpg" alt="">
-            <img class="picture-left fadeup in-out" src="./imgs/flower5.jpg" alt="">
-            <img class="picture-right fadeup in-out" src="./imgs/flower6.jpg" alt="">
+        <div class="gallery__list">
+            <img class="gallery__item gallery__item--odd fadeup" src="./imgs/flower1.jpg" alt="">
+            <img class="gallery__item gallery__item--even fadeup" src="./imgs/flower2.jpg" alt="">
+            <img class="gallery__item gallery__item--odd fadeup" src="./imgs/flower3.jpg" alt="">
+            <img class="gallery__item gallery__item--even fadeup" src="./imgs/flower4.jpg" alt="">
+            <img class="gallery__item gallery__item--odd fadeup in-out" src="./imgs/flower5.jpg" alt="">
+            <img class="gallery__item gallery__item--even fadeup in-out" src="./imgs/flower6.jpg" alt="">
         </div>
     </section>
 
     <section class="access js-background-trigger">
         <div class="access__content in-out-text">
-            <h2 class="label">ACCESS</h2>
-            <h3 class="access__sideline">PARK SIDE HALL</h3>
-            <p class="info__access--jp">〒152-0035 東京都目黒区自由が丘1-1-1 PARK SIDE HALL<br>PARK SIDE HALL, 1-1-1 Jiyugaoka, Meguro-ku, Tokyo</p>
-            <p class="info__tel">Tel: 03-1111-1111<br>E-mail: info@xxxxxxx.jp</p>
+            <h2 class="access__label">ACCESS</h2>
+            <h3 class="access__title">PARK SIDE HALL</h3>
+            <p class="access__text">〒152-0035 東京都目黒区自由が丘1-1-1 PARK SIDE HALL<br>PARK SIDE HALL, 1-1-1 Jiyugaoka, Meguro-ku, Tokyo</p>
+            <p class="access__contact">Tel: 03-1111-1111<br>E-mail: info@xxxxxxx.jp</p>
             
-            <a href="https://www.google.com/maps/search/?api=1&query=東京都千代田区麹町" target="_blank" rel="noopener noreferrer" class="map-button">
+            <a href="https://www.google.com/maps/search/?api=1&query=東京都千代田区麹町" target="_blank" rel="noopener noreferrer" class="access__map-button map-button">
                 GOOGLE MAP
             </a>
         </div>
