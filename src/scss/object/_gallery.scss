@@ -1,3 +1,5 @@
+@use "../foundation/variables" as v;
+
 .main-gallery {
     width: 100%;
     overflow: hidden;
@@ -39,4 +41,9 @@
         &--odd { align-self: flex-start; }
         &--even { align-self: flex-end; }
     }
+}
+
+@media (max-width: 768px) {
+    .main-gallery__img--left, .main-gallery__img--right { display: none; }
+    .gallery__list { align-items: center; }
 }
