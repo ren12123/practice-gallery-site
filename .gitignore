@@ -12,4 +12,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # OS固有のゴミファイル
-.DS_Store
+.DS_Storenode_modules/
+dist/
