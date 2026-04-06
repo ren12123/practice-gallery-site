@@ -152,8 +152,12 @@
 }
 
 .q-other {
-    padding-inline: clamp(77.5px, 8.33vw, 120px);
+    padding: 30px clamp(61.5px, 7.22vw, 104px);
     margin-bottom: 200px;
+    
+    & div {
+        width: 192px;
+    }
 }
 
 /* =============================================
